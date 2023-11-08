@@ -25,3 +25,31 @@ String updateQtext = "UPDATE BOARD_QNA SET QNA_TEXT = ? WHERE QNA_NUMBER = ?";
 --QnA삭제
 DELETE FROM BOARD_QNA WHERE ACCOUNT_ID = ?;
 String deleteQnA = "DELETE FROM BOARD_QNA WHERE account_id = ?";
+
+--시퀀스 생성
+CREATE SEQUENCE board_qna_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE -- 추가적으로 넣고 필수는 아님
+    NOCYCLE;
+
+--게시글번호 트리거 생성
+CREATE OR REPLACE TRIGGER qnapost_trigger
+BEFORE INSERT ON board_qna
+FOR EACH ROW
+BEGIN
+    SELECT board_qna_seq.NEXTVAL
+    INTO:NEW.qna_no
+    FROM dual;
+END;
+/
+
+--게시글 업데이트시 시간변경 트리거 생성
+CREATE OR REPLACE TRIGGER qnaupdate_trigger
+	BEFORE UPDATE OF qna_title OR UPDATE OF qna_text ON board_qna
+	FOR EACH ROW
+	
+	BEGIN
+		:new.qna_time := CURRENT_TIMESTAMP;
+	END;
+/
