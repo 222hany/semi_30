@@ -123,11 +123,17 @@ li a:hover:after, li a:focus:after {
 	width: 250px;
 	height: 710px;
 	color: aquamarine;
-    background-color: rgb(218, 193, 193);
+	border-right: 1px solid lightgray;
+	border-left: 1px solid lightgray;
+}
+
+.para {
+	margin: 20px 0 0 20px;
 }
 
 .links {
-    margin: 20px 0 0 20px;
+	text-decoration: none;
+	color: black;
 }
 
 .main {
@@ -135,6 +141,7 @@ li a:hover:after, li a:focus:after {
     width: 750px;
     height: 710px;
     text-align: center;
+    border-right: 1px solid lightgray;
 }
 
 .search-box {
@@ -146,7 +153,7 @@ li a:hover:after, li a:focus:after {
 
 table {
 	margin: 10px 0;
-	border-top: 1px solid black;	
+	border-top: 1px solid lightgray;	
 	width: 100%;
 	border-collapse: collapse;
 	text-align: center;
@@ -154,7 +161,7 @@ table {
 
 th, td {
 	text-align: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid lightgray;
 }
 
 .register-main {
@@ -162,6 +169,7 @@ th, td {
 	float: left;
 	width: 750px;
 	height: 710px;
+	border-right: 1px solid lightgray;
 }
 
 .detail-main {
@@ -171,20 +179,20 @@ th, td {
 }
 
 .product_img{
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	width: 500px;
 	height: 300px;
 }
 
 .product_title{
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	font-size: 20px;
 	width: 500px;
 	height: 40px;
 }
 
 .product_text{
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	font-size: 20px;
 	width: 500px;
 	height: 300px;
@@ -215,20 +223,20 @@ th, td {
 }
 
 .detail-img {
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	width: 500px;
 	height: 300px;
 }
 
 .detail_title{
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	font-size: 20px;
 	width: 500px;
 	height: 40px;
 }
 
 .detail_text{
-	border: 1px solid black;
+	border: 1px solid lightgray;
 	font-size: 20px;
 	width: 500px;
 	height: 300px;

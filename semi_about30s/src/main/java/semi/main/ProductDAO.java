@@ -26,7 +26,6 @@ public class ProductDAO {
 	
 	public List<Product> searchList(String searchTitle) {
 		List<Product> products = new ArrayList<Product>();
-		Product product = new Product();
 		
 		try {
 			conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
@@ -44,14 +43,14 @@ public class ProductDAO {
 			
 			ResultSet resultSet = ps.executeQuery();
 			while(resultSet.next()) {
-				int productNo = resultSet.getInt("PRODUCT_NO");
-				String productTitle = resultSet.getString("PRODUCT_TITLE");
-				String productText = resultSet.getString("PRODUCT_TEXT");
-				int productPrice = resultSet.getInt("PRODUCT_PRICE");
-				String productCategory = resultSet.getString("PRODUCT_CATEGORY");
-				String productComment = resultSet.getString("PRODUCT_COMMENT");
-				String productFile = resultSet.getString("PRODUCT_FILE");
-				String accountId = resultSet.getString("ACCOUNT_ID");
+				Product product = new Product();
+				product.setProductNo(resultSet.getInt("PRODUCT_NO"));
+				product.setProductTitle(resultSet.getString("PRODUCT_TITLE"));
+				product.setProductText(resultSet.getString("PRODUCT_TEXT"));
+				product.setProductPrice(resultSet.getInt("PRODUCT_PRICE"));
+				product.setProductCategory(resultSet.getString("PRODUCT_CATEGORY"));
+				product.setProductComment(resultSet.getString("PRODUCT_COMMENT"));
+				product.setAccountId(resultSet.getString("ACCOUNT_ID"));
 				
 				Blob blob = resultSet.getBlob("PRODUCT_FILE");
 				byte[] imageBytes = blob.getBytes(1, (int) blob.length());

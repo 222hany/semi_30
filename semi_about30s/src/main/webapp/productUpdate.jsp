@@ -33,9 +33,11 @@
         </nav>
 	</div>
 	<div class="contents">
-	<div class="sidebar">
-		<p class="links"><a href="productRetrieve.jsp">상품 조회</a></p>
-		<p class="links"><a href="productRegister.jsp">상품 등록</a></p>
+<div class="sidebar">
+		<p class="para"><a href="changePassword.jsp" class="links">비밀번호 변경</a></p>
+		<p class="para"><a href="deleteAccount.jsp" class="links">회원 탈퇴</a></p>
+		<p class="para"><a href="productRetrieve.jsp" class="links">상품 조회</a></p>
+		<p class="para"><a href="productRegister.jsp" class="links">상품 등록</a></p>
 	</div>
 	<div class="register-main">
 	<%

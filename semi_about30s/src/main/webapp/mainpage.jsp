@@ -63,13 +63,13 @@
 						for(Product p : products){
 					%>
 					<tr>
-						<td><img src="<%= p.getProductFile() %>" style="width:300px; height:200px;"></td>
+						<td><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><img src="<%= p.getProductFile() %>" style="width:300px; height:200px;"></a></td>
 					</tr>
 					<tr>
 						<td><%= p.getAccountId() %></td>
 					</tr>
 					<tr>
-						<td><%= p.getProductTitle() %></td>
+						<td><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><%= p.getProductTitle() %></a></td>
 					</tr>
 					<%
 						}
