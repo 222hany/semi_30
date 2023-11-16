@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="semi.review.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="./css/reviewDelete.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -45,25 +46,29 @@
 	                    </ul>
 	                </nav>
 		        </div>
-		<section>
-			<form action="QnAPostServlet" method="post"> <!--form action="QnAPostServlet" method="post" enctype="multipart/form-data"-->
-				
-				<input type="text" id="ACCOUNT_ID" name="ACCOUNT_ID" placeholder="아이디" required><br>
-				
-				<input type="text" id="QNA_TITLE" name="QNA_TITLE" placeholder="제목" required><br>
-				
-				<input type="text" id="QNA_TEXT" name="QNA_TEXT" placeholder="내용" required><br>
-				<input type="file" id="fileInput" accept="image/*">
-
-				<button type="button" onclick='location.href = "QnAList.jsp"'>취소</button>				
-				<input type="submit" id="submitButton" value="작성">
-				
-
-			
-			
-			</form>
-			</section>
-	        <footer>
+        	<%
+			String reviewNoValue = (String)request.getParameter("REVIEW_No");
+	        int reviewNo = Integer.parseInt(reviewNoValue);
+			ReviewDAO rDAO = new ReviewDAO();
+			int result =  rDAO.deleteReview(reviewNo);
+	        if(result>0){
+	       	%>
+	        	<script type="text/javascript">
+	        		alert("게시글 삭제 성공");
+	        		location.href="reviewList.jsp";
+	        	</script>
+	        <%
+	        } else {
+	        %>
+	        
+	        <script type="text/javascript">
+	        	alert("게시글 삭제 실패");
+	        	location.href="reviewList.jsp";
+	        </script>
+	        <%
+	        }
+	        %>
+			<footer>
 	        </footer>
 	        </div>
 	    </div>

@@ -24,7 +24,7 @@
     height: 1080px;
 }
 
-.login-join-link{
+.sessionState{
     text-align: right;
     height: 20px;
 }
@@ -109,17 +109,14 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
-
+#li_link:visited{
+	color: black;
+}
 .contents:after {
     content: '';
     display: block;
     clear: both;
 } 
-
-a {
-	text-decoration: none;
-	color: black;
-}
 
 .sidebar {
 	float: left;

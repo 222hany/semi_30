@@ -1,5 +1,6 @@
 package semi.main;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,9 +8,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import semi.mypage.ProductVO;
+
 public class ProductDAO {
-    private PreparedStatement ps;
-    private Connection con;
+	private static final String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String jdbcUsername = "THIRTIES";
+	private static final String jdbcPassword = "3030";
+	Connection conn;
+	
 	public ProductDAO() {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -18,90 +24,79 @@ public class ProductDAO {
 		}
 	}
 	
-	public List listproducts(Product product) {
-		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:XE";
-		String jdbcUsername = "thirties";
-		String jdbcPassword = "3030";
-		
+	public List<Product> searchList(String searchTitle) {
 		List<Product> products = new ArrayList<Product>();
-		String searchTitle = product.getProductTitle();
+		Product product = new Product();
+		
 		try {
-			con = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-
+			conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			PreparedStatement ps;
+			
 			String search = "SELECT * FROM products";
 			
 			if((searchTitle != null && searchTitle.length() != 0)) {
 				search += " WHERE product_title LIKE ?";
-				ps = con.prepareStatement(search);
+				ps = conn.prepareStatement(search);
 				ps.setString(1, "%" + searchTitle + "%");
 			}else {
-				ps = con.prepareStatement(search);
+				ps = conn.prepareStatement(search);
 			}
 			
 			ResultSet resultSet = ps.executeQuery();
 			while(resultSet.next()) {
-				int productNo = resultSet.getInt("product_no");
-				String accountId = resultSet.getString("account_id");
-				String productCategory = resultSet.getString("product_category");
-				String productTitle = resultSet.getString("product_title");
-				String productText = resultSet.getString("product_text");
-				int productPrice = resultSet.getInt("product_price");
+				int productNo = resultSet.getInt("PRODUCT_NO");
+				String productTitle = resultSet.getString("PRODUCT_TITLE");
+				String productText = resultSet.getString("PRODUCT_TEXT");
+				int productPrice = resultSet.getInt("PRODUCT_PRICE");
+				String productCategory = resultSet.getString("PRODUCT_CATEGORY");
+				String productComment = resultSet.getString("PRODUCT_COMMENT");
+				String productFile = resultSet.getString("PRODUCT_FILE");
+				String accountId = resultSet.getString("ACCOUNT_ID");
 				
-				Product product1 = new Product();
+				Blob blob = resultSet.getBlob("PRODUCT_FILE");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
 				
-				product1.setProductNo(productNo);
-				product1.setAccountId(accountId);
-				product1.setProductCategory(productCategory);
-				product1.setProductTitle(productTitle);
-				product1.setProductText(productText);
-				product1.setProductPrice(productPrice);
+				String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes);
+                String imageUrl = "data:image/jpeg;base64, " + imageBase64;
+                product.setProductFile(imageUrl);
 				
-				products.add(product1);
+				products.add(product);
 			}
-			resultSet.close();
-			ps.close();
-			con.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return products;
 	}
 	
-	public List mainList(Product product) {
-		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:XE";
-		String jdbcUsername = "thirties";
-		String jdbcPassword = "3030";
-		
+	public List<Product> mainList() {
 		List<Product> products = new ArrayList<Product>();
 		try {
-			con = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 
-			String search = "SELECT * FROM PRODUCTS WHERE ROWNUM <= 3 ORDER  BY PRODUCT_NO DESC";
-			ps = con.prepareStatement(search);
+			String sql = "SELECT * FROM PRODUCTS WHERE ROWNUM <= 3 ORDER  BY PRODUCT_NO DESC";
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
 			while(resultSet.next()) {
-				int productNo = resultSet.getInt("product_no");
-				String accountId = resultSet.getString("account_id");
-				String productCategory = resultSet.getString("product_category");
-				String productTitle = resultSet.getString("product_title");
-				String productText = resultSet.getString("product_text");
-				int productPrice = resultSet.getInt("product_price");
+				Product product = new Product();
 				
-				Product product1 = new Product();
+				product.setProductNo(resultSet.getInt("PRODUCT_NO"));
+				product.setProductTitle(resultSet.getString("PRODUCT_TITLE"));
+				product.setProductText(resultSet.getString("PRODUCT_TEXT"));
+				product.setProductPrice(resultSet.getInt("PRODUCT_PRICE"));
+				product.setProductCategory(resultSet.getString("PRODUCT_CATEGORY"));
+				product.setProductComment(resultSet.getString("PRODUCT_COMMENT"));
+				product.setAccountId(resultSet.getString("ACCOUNT_ID"));
 				
-				product1.setProductNo(productNo);
-				product1.setAccountId(accountId);
-				product1.setProductCategory(productCategory);
-				product1.setProductTitle(productTitle);
-				product1.setProductText(productText);
-				product1.setProductPrice(productPrice);
+				Blob blob = resultSet.getBlob("PRODUCT_FILE");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
 				
-				products.add(product1);
+				String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes);
+                String imageUrl = "data:image/jpeg;base64, " + imageBase64;
+                product.setProductFile(imageUrl);
+				
+				products.add(product);
 			}
-			resultSet.close();
-			ps.close();
-			con.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

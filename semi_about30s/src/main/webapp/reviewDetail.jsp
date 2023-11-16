@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.sql.Timestamp"%>
+<%@ page import="semi.review.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="./css/reviewDetail.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -45,25 +48,32 @@
 	                    </ul>
 	                </nav>
 		        </div>
-		<section>
-			<form action="QnAPostServlet" method="post"> <!--form action="QnAPostServlet" method="post" enctype="multipart/form-data"-->
-				
-				<input type="text" id="ACCOUNT_ID" name="ACCOUNT_ID" placeholder="아이디" required><br>
-				
-				<input type="text" id="QNA_TITLE" name="QNA_TITLE" placeholder="제목" required><br>
-				
-				<input type="text" id="QNA_TEXT" name="QNA_TEXT" placeholder="내용" required><br>
-				<input type="file" id="fileInput" accept="image/*">
-
-				<button type="button" onclick='location.href = "QnAList.jsp"'>취소</button>				
-				<input type="submit" id="submitButton" value="작성">
-				
-
-			
-			
-			</form>
-			</section>
-	        <footer>
+		<%
+			String reviewNoValue = (String) request.getParameter("REVIEW_NO");
+			int reviewNo = Integer.parseInt(reviewNoValue);
+			ReviewDAO reviewDao = new ReviewDAO();
+			Review review = reviewDao.getReviewNo(reviewNo);
+		%>
+			<p>
+				번호 : <%=review.getREVIEW_NO()%><br>
+				제목 : <%=review.getREVIEW_TITLE()%><br>
+				내용 : <%=review.getREVIEW_TEXT()%><br>
+				사용자ID : <%=review.getACCOUNT_ID()%><br>
+				작성시간 : <%=review.getREVIEW_TIME()%>
+			</p>
+			<div class="buttons">
+				<button class="btn1"><a href ="reviewList.jsp">목록</a></button>
+				<form action="reviewDelete.jsp?REVIEW_No=<%=reviewNo%>" method="post">
+					<button class="btn1" type="submit" id="deleteButton" onclick="Location.href='reviewDelete.jsp?REVIEW_NO=<%=reviewNo%>'">삭제</button>
+				</form>
+				<button class="btn1" id="updateButton" onclick="location.href='reviewUpdate.jsp?REVIEW_No=<%=reviewNo%>'">수정</button>
+			</div>
+			<div class="returnMain">
+	        	<a href="reviewList.jsp">
+	       			<img src="./img/goToMain.jpg" width="300px">
+	       		</a>
+       		</div>
+			<footer>
 	        </footer>
 	        </div>
 	    </div>

@@ -171,3 +171,6 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
+#li_link:visited{
+	color: black;
+}

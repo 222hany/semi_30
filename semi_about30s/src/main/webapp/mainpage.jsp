@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     import="semi.main.*"
     import="java.util.*"
+    import="java.sql.*"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,14 +41,14 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>
-				<form class="search-box" action="productList.jsp" method="post">
+				<form class="search-box" action="searchedList.jsp" method="post">
 					<input name="searchTitle" class="search-text" type="text" placeholder="찾으시는 상품을 검색하세요.">
 	            	<button class="search-button" type="submit"><i class="fas fa-search fa-2x"></i></button>
 	        	</form>
@@ -55,34 +56,20 @@
 	        		request.setCharacterEncoding("utf-8");
 	        		Product product = new Product();
 	        		ProductDAO productDAO = new ProductDAO();
-	        		List products = productDAO.mainList(product);
+	        		List<Product> products = productDAO.mainList();
 	        	%>
 	        	<table>
-					<tr>
-						<th>게시번호</th>
-						<th>작성자</th>
-						<th>상품카테고리</th>
-						<th>제목</th>
-						<th>내용</th>
-						<th>가격</th>
-					</tr>
 					<%
-						for(int i=0; i<products.size(); i++){
-							Product product1 = (Product)products.get(i);
-							int productNo = product1.getProductNo();
-							String accountId = product1.getAccountId();
-							String productCategory = product1.getProductCategory();
-							String productTitle = product1.getProductTitle();
-							String productText = product1.getProductText();
-							int productPrice = product1.getProductPrice();
+						for(Product p : products){
 					%>
 					<tr>
-						<td><%= productNo %></td>
-						<td><%= accountId %></td>
-						<td><%= productCategory %></td>
-						<td><%= productTitle %></td>
-						<td><%= productText %></td>
-						<td><%= productPrice %></td>
+						<td><img src="<%= p.getProductFile() %>" style="width:300px; height:200px;"></td>
+					</tr>
+					<tr>
+						<td><%= p.getAccountId() %></td>
+					</tr>
+					<tr>
+						<td><%= p.getProductTitle() %></td>
 					</tr>
 					<%
 						}
