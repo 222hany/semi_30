@@ -64,15 +64,15 @@
 				
    				if (product != null) {
 			%>
-			<img src="<%= product.getProductFile() %>" style="width:400px;">
+			<img src="<%= product.getProductFile() %>" class="detail-img">
 			<p class="detail-title"><%= product.getProductTitle() %></p>
 			<p class="detail-text"><%= product.getProductText() %></p>
 			<p class="detail-category"><%= product.getProductCategory() %></p>
-			<p class="detail-price"><%= product.getProductPrice() %></p>
-			<p>작성자 ID : <%= product.getAccountId() %></p>
-			<button type="button" class="btn" onclick="location.href='productRetrieve.jsp'">목록</button>
-			<button type="button" class="btn" onclick="location.href='productUpdate.jsp?productNo=<%= product.getProductNo() %>'">수정</button>
-			<button type="button" class="btn" onclick="location.href='productDelete.jsp?productNo=<%= product.getProductNo() %>'">삭제</button>
+			<p class="detail-price"><%= product.getProductPrice() %> 원</p>
+			<p class="detail-id">작성자 : <%= product.getAccountId() %></p><br>
+			<button type="button" class="detail-btn" onclick="location.href='productRetrieve.jsp'">목록</button>
+			<button type="button" class="detail-btn" onclick="location.href='productUpdate.jsp?productNo=<%= product.getProductNo() %>'">수정</button>
+			<button type="button" class="detail-btn" onclick="location.href='productDelete.jsp?productNo=<%= product.getProductNo() %>'">삭제</button>
 			<%
    				} else {
 			%>
@@ -84,6 +84,7 @@
 	</div>
 	</div>
 	<footer>
+	<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
 	</footer>
 	</div>
 	</div>

@@ -4,7 +4,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="css/QnAStyles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -38,34 +38,39 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link" href="" style="text-decoration: none;">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>
-		<section>
+		<div class="main">
 			<form action="QnAPostServlet" method="post"> <!--form action="QnAPostServlet" method="post" enctype="multipart/form-data"-->
-				
-				<input type="text" id="ACCOUNT_ID" name="ACCOUNT_ID" placeholder="아이디" required><br>
-				
-				<input type="text" id="QNA_TITLE" name="QNA_TITLE" placeholder="제목" required><br>
-				
-				<input type="text" id="QNA_TEXT" name="QNA_TEXT" placeholder="내용" required><br>
-				<input type="file" id="fileInput" accept="image/*">
-
+				<table border="1" style="width:90%; border-collapse:collapse; vertical-align: middle; margin-top:40px; margin-left:50px; margin-bottom:20px;"">
+				<!-- input type="text" id="ACCOUNT_ID" name="ACCOUNT_ID" placeholder="아이디" required -->
+					<tr>
+						<th style="padding:15px;">제목</th>
+						<td><input style="width:100%; border:none;" type="text" name="qnaTitle" size="13pt" id="QNA_TITLE" placeholder=" 제목을 입력하세요." required></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea rows="20" cols="60" id="QNA_TEXT" name="QNA_TEXT" style="width:100%; resize :none; border:none;" placeholder=" 내용을 입력하세요." required></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<input type="file" id="fileInput" accept="image/*"></td>
+					</tr>
+				</table>
 				<button type="button" onclick='location.href = "QnAList.jsp"'>취소</button>				
-				<input type="submit" id="submitButton" value="작성">
-				
+				<button type="submit" id="submitButton">작성</button>
 
-			
-			
 			</form>
-			</section>
-	        <footer>
-	        </footer>
+			</div>
 	        </div>
 	    </div>
 	</body>
+	<footer style="text-align:center; font-family: 'SUITE-Regular'; margin:10px">
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
 </html>

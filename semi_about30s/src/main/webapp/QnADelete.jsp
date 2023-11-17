@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="css/QnAStyles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -40,10 +40,10 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link" href="" style="text-decoration: none;">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>
@@ -69,10 +69,10 @@
         <%
         }
         %>
-        
-	        <footer>
-	        </footer>
 	        </div>
 	    </div>
 	</body>
+	<footer style="text-align:center; font-family: 'SUITE-Regular'; margin:10px">
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
 </html>

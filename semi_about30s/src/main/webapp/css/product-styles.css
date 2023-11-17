@@ -120,11 +120,11 @@ li a:hover:after, li a:focus:after {
 
 .sidebar {
 	float: left;
-	width: 250px;
-	height: 710px;
-	color: aquamarine;
-	border-right: 1px solid lightgray;
-	border-left: 1px solid lightgray;
+	width: 245px;
+	height: 200px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	margin: 5px 5px 505px 0;
 }
 
 .para {
@@ -139,9 +139,11 @@ li a:hover:after, li a:focus:after {
 .main {
     float: left;
     width: 750px;
-    height: 710px;
+    height: 705px;
     text-align: center;
-    border-right: 1px solid lightgray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 5px 0 0 0;
 }
 
 .search-box {
@@ -152,11 +154,10 @@ li a:hover:after, li a:focus:after {
 }
 
 table {
-	margin: 10px 0;
-	border-top: 1px solid lightgray;	
 	width: 100%;
 	border-collapse: collapse;
 	text-align: center;
+	margin: 5px 0;
 }
 
 th, td {
@@ -168,24 +169,24 @@ th, td {
 	text-align: center;
 	float: left;
 	width: 750px;
-	height: 710px;
-	border-right: 1px solid lightgray;
-}
-
-.detail-main {
-	float: left;
-	width: 750px;
-	height: 710px;
+	height: 705px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 5px 0 0 0;
 }
 
 .product_img{
 	border: 1px solid lightgray;
+	border-radius: 5px;
 	width: 500px;
-	height: 300px;
+	height: 297px;
+	margin-bottom: 3px;
+	text-align: center;
 }
 
 .product_title{
 	border: 1px solid lightgray;
+	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
 	height: 40px;
@@ -193,9 +194,11 @@ th, td {
 
 .product_text{
 	border: 1px solid lightgray;
+	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
-	height: 300px;
+	height: 297px;
+	margin-top: 3px;
 }
 
 .product-category {
@@ -208,6 +211,7 @@ th, td {
 }
 
 .product-register {
+	margin-top: 2px;
 	width: 50px;
 	height: 35px;
 }
@@ -222,37 +226,78 @@ th, td {
 	height: 35px;
 }
 
+.detail-main {
+	padding: 20px;
+	float: left;
+	width: 750px;
+	height: 710px;
+}
+
 .detail-img {
 	border: 1px solid lightgray;
 	width: 500px;
 	height: 300px;
 }
 
-.detail_title{
+.detail-title{
+	margin: 0 auto;
 	border: 1px solid lightgray;
+	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
-	height: 40px;
+	height: 30px;
 }
 
-.detail_text{
+.detail-text{
+	margin: 5px auto;
 	border: 1px solid lightgray;
+	border-radius: 5px;
+	text-align: left;
+	padding-left: 5px;
 	font-size: 20px;
 	width: 500px;
-	height: 300px;
+	height: 250px;
 }
 
 .detail-category {
-	height: 35px;
+	padding: 3px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	width: 50px;
+	height: 30px;
+	display: inline-block;
 }
 
 .detail-price{
-	width: 355px;
+	margin: 0 auto;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding-top: 3px;
+	width: 220px;
+	height: 30px;
+	display: inline-block;
+}
+
+.detail-id {
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding-top: 3px;
+	width: 220px;
+	height: 30px;
+	display: inline-block;
+}
+
+.detail-btn {
+	margin-top: 10px;
+	width: 50px;
 	height: 35px;
 }
 
 footer {
     text-align: center;
-    background-color: lightgray;
-    height: 100px;
+    height: 95px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-top: 40px;
+    margin: 5px 0 0 0;
 }

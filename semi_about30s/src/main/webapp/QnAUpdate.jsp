@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="css/QnAStyles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -40,16 +40,15 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link" href="" style="text-decoration: none;">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>
         <section>
 			<%
-
 					//String = id 값을 가지고 오겠다.
 					String qnaNoValue = (String)request.getParameter("qnaNo");
 					int qnaNo = Integer.parseInt(qnaNoValue);
@@ -60,27 +59,23 @@
 			%>
 			<form action="QnAUpdateServlet" method="post">
 				<input type="hidden" name="qnaNo" value="<%=qna.getQnaNo()%>"><br>
-				<table border="1">
+				<table border="1" style="width:90%; border-collapse:collapse; vertical-align: middle; margin-top:40px; margin-left:50px; margin-bottom:20px;">
 					<tr>
-						<td>Title</td>
-						<td><input type="text" name="qnaTitle" value="<%=qna.getQnaTitle() %>"></td>
-
+						<th style="padding:15px;"> 제목 </th><td><input style="width:100%; border:none;" type="text" name="qnaTitle" size="13pt" value="<%=qna.getQnaTitle() %>"></td>
 					</tr>
-					<tr>
-						<td>Text</td>
-						<td><textarea rows="20" cols="60" name="qnaText"><%=qna.getQnaText() %></textarea></td>
-
+						<th>내용	</th><td><textarea rows="20" cols="60" name="qnaText" style="width:100%; resize :none; border:none;"><%=qna.getQnaText() %></textarea></td>
 					<tr>
 						<td colspan="2">
-						<input type="file" id="fileInput" accept="image/*"><br>
-						<input type="submit" id="update" value="수정"></td>
+						<input style="font-family: 'SUITE-Regular';" type="file" id="fileInput" accept="image/*"><br>
 					</tr>		
 				</table>
+				<button type="submit" id="update">수정</button>
 			</form>	
 		</section>
-			<footer>
-	        </footer>
 	        </div>
 	    </div>
 	</body>
+	<footer style="text-align:center; font-family: 'SUITE-Regular'; margin:10px">
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
 </html>

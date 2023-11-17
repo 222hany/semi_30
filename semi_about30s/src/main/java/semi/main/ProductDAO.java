@@ -72,7 +72,7 @@ public class ProductDAO {
 		try {
 			conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 
-			String sql = "SELECT * FROM PRODUCTS WHERE ROWNUM <= 3 ORDER  BY PRODUCT_NO DESC";
+			String sql = "SELECT * FROM PRODUCTS WHERE ROWNUM <= 15 ORDER  BY PRODUCT_NO DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			

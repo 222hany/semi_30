@@ -9,7 +9,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/mainpage.css">
+	<link rel="stylesheet" href="css/QnAStyles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -43,15 +43,13 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link" href="" style="text-decoration: none;">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>
-        
-		<h1>게시글 상세 정보</h1>
 		<%
 			//String = id 값을 가지고 오겠다.
 			String qnaNoValue = request.getParameter("qnaNo");
@@ -60,27 +58,35 @@
 			QnADAO qnaDao = new QnADAO();
 			QnAVO qna = qnaDao.getQnaNo(qnaNo);
 		%>
-		<p>
+		<table border="1" style="width:90%; border-collapse:collapse; vertical-align: middle; margin-top:40px; margin-left:50px; margin-bottom:20px;">
 		<% if (qna != null) { %>
-		사용자 ID : <%=qna.getAccountID() %><br>
-		제목 : <%=qna.getQnaTitle() %><br>
-		내용 : <%=qna.getQnaText() %><br>
-		작성 시간 : <%=qna.getQnaTime() %>
+			<tr>
+				<th>작성자</th><td style="width: 400px;"><%=qna.getAccountID() %></td>
+				<th>작성 시간</th><td style="text-align:center;"><%=qna.getQnaTime() %></td>
+			</tr>
+			<tr>
+				<th>제목</th><td colspan="3"><%=qna.getQnaTitle() %></td>
+			</tr>
+			<tr>
+				<th style="height:500px;">내용</th><td colspan="3"><%=qna.getQnaText() %></td>
+			</tr>
+		</table>
 		<% }else{ %>
 		not post.
 		<% } %>
-		</p>
 		
 		<form action="QnADelete.jsp?qnaNo=<%=qnaNo%>" method="post">
 			<button type="submit" id="deleteButton" onclick="Location.href='QnADelete.jsp?qnaNo=<%=qnaNo%>'">삭제</button>
 		</form>
 		
 		<button id="updateButton" onclick="location.href='QnAUpdate.jsp?qnaNo=<%=qnaNo%>'">수정</button>
-		
-		
-	        <footer>
-	        </footer>
+		<button onclick="location.href='QnAList.jsp'" style="float:left; margin-left:50px;">목록</button>
+
+
 	        </div>
 	    </div>
 	</body>
+	<footer style="text-align:center; font-family: 'SUITE-Regular'; margin:10px">
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
 </html>

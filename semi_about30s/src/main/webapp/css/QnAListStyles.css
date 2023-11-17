@@ -112,78 +112,64 @@ li a:hover:after, li a:focus:after {
 #li_link:visited{
 	color: black;
 }
-.search-box {
-    padding: 20px;
-    position: absolute;
-    top: 33%;
-    left: 37.5%;
-    height: 30px;
-    border-radius: 30px;
-    border: 3px solid #75C945;
-    transition: 0.5s;
-    width: 450px;
+.contents:after {
+    content: '';
+    display: block;
+    clear: both;
 }
-.search-box:hover{
-    box-shadow: 0 0 0.5px 1px #75C945;
+.sidebar {
+	float: left;
+	margin-top: 20px;
 }
-.search-text {
-    border: none;
-    outline: none;
-    font-size: 13pt;
-    transition: 0.4s;
-    width: 374px;
-    position: absolute;
-    top: 23%;
+.sidebar td {
+	font-size:11pt;
 }
-.search-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    position: absolute;
-    left: 90%;
-    top: 16%;
-    color: #75C945;
-}
-.productList{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 100px;
-}
-.productList .productBox{
-    border: 1px solid lavender;
-    border-radius: 5px;
-    height: 375px;
-    width: 300px;
-    padding: 5px;
+
+.main {
+	float: left;
     margin-top: 40px;
 }
-#list_Id{
-	font-family: 'SUITE-Regular';
-	font-size: 12pt;
-	color: #6DA44C;
-	line-height: 30px;
-	letter-spacing: 2px;
-}
-#list_title{
-	font-family: 'SUITE-Regular';
-	font-size: 12pt;
-	color: black;
+
+#listlink {
 	text-decoration: none;
-	letter-spacing: 2px;
+	color: inherit;
 }
-#list_title:visited{
-	color: black;
-	letter-spacing: 2px;
-}
-#list_price{
+
+table {
+	border: none;
 	font-family: 'SUITE-Regular';
-	font-size: 12pt;
-	letter-spacing: 2px;
 }
+
+button {
+	font-family: 'SUITE-Regular';
+	float : right;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	padding: 5px 10px;
+	margin-right : 48px;
+	margin-top : 10px;
+	background-color: transparent;
+	border: 2px solid #5C408C;
+	border-radius: 0.6em;
+	color: #5C408C;
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1;
+	text-align: center;
+	font-weight: 700;
+	transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            }
+
+button:hover, :focus{
+	box-shadow: 0 0 40px 40px #5C408C inset;
+	color: #fff;
+	outline: 0;
+}
+
+
+/*
 footer {
     text-align: center;
     background-color: beige;
     height: 100px;
 }
+*/

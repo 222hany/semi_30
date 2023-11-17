@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/productList.css">
+		<link rel="stylesheet" href="./css/searchedList.css">
 		<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	</head>
 
@@ -51,7 +51,6 @@
 					<input name="searchTitle" class="search-text" type="text" placeholder="찾으시는 상품을 검색하세요.">
 	            	<button class="search-button" type="submit"><i class="fas fa-search fa-2x"></i></button>
 	        	</form>
-	        	<h2>검색 결과</h2>
 				<%
 					request.setCharacterEncoding("utf-8");
 					String searchTitle = request.getParameter("searchTitle");
@@ -60,25 +59,24 @@
 					ProductDAO productDAO = new ProductDAO();
 					List<Product> products = productDAO.searchList(searchTitle);
 				%>
-				<table>
+	        	<h4>'<%= searchTitle %>'에 대한 검색 결과</h4>
+				<div class="searchList">
 					<%
 						for(Product p : products){
 					%>
-					<tr>
-						<td><img src="<%= p.getProductFile() %>" style="width:300px; height:200px;"></td>
-					</tr>
-					<tr>
-						<td><%= p.getAccountId() %></td>
-					</tr>
-					<tr>
-						<td><%= p.getProductTitle() %></td>
-					</tr>
+					<div class="productBox">
+						<p><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><img src="<%= p.getProductFile() %>" style="width:288px; height:288px;"></a></p>
+						<p id="list_Id"><img src="./img/gazi.png" style="width:20px; height:18px;"><%= p.getAccountId() %></p>
+						<p><a id="list_title" href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><%= p.getProductTitle() %></a></p>
+						<p id="list_price"><%= p.getProductPrice() %> 원</p>
+					</div>
 					<%
 						}
 					%>
-				</table>
+				</div>
 	        <footer>
-	        </footer>
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+			</footer>
 	        </div>
 	    </div>
 	</body>

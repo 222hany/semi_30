@@ -41,7 +41,7 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a id="li_link">자유게시판</a></li>
+	                        <li><a id="li_link" href="" style="text-decoration: none;">자유게시판</a></li>
 	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
 	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
 	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
@@ -51,32 +51,30 @@
 				<form class="search-box" action="searchedList.jsp" method="post">
 					<input name="searchTitle" class="search-text" type="text" placeholder="찾으시는 상품을 검색하세요.">
 	            	<button class="search-button" type="submit"><i class="fas fa-search fa-2x"></i></button>
-	        	</form>
+	        	</form>		
 	        	<%
 	        		request.setCharacterEncoding("utf-8");
 	        		Product product = new Product();
 	        		ProductDAO productDAO = new ProductDAO();
 	        		List<Product> products = productDAO.mainList();
 	        	%>
-	        	<table>
+				<div class="productList">
 					<%
 						for(Product p : products){
 					%>
-					<tr>
-						<td><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><img src="<%= p.getProductFile() %>" style="width:300px; height:200px;"></a></td>
-					</tr>
-					<tr>
-						<td><%= p.getAccountId() %></td>
-					</tr>
-					<tr>
-						<td><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><%= p.getProductTitle() %></a></td>
-					</tr>
+					<div class="productBox">
+						<p><a href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><img src="<%= p.getProductFile() %>" style="width:288px; height:288px;"></a></p>
+						<p id="list_Id"><img src="./img/gazi.png" style="width:20px; height:18px;"><%= p.getAccountId() %></p>
+						<p><a id="list_title" href="productDetail.jsp?productNo=<%= p.getProductNo() %>"><%= p.getProductTitle() %></a></p>
+						<p id="list_price"><%= p.getProductPrice() %> 원</p>
+					</div>
 					<%
 						}
 					%>
-				</table>
+				</div>
 	        <footer>
-	        </footer>
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+			</footer>
 	        </div>
 	    </div>
 	</body>
