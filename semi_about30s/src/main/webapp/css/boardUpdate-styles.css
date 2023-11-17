@@ -115,13 +115,6 @@ li a:hover:after, li a:focus:after {
 #li_link:visited{
 	color: black;
 }
-/*
-footer {
-    text-align: center;
-    background-color: beige;
-    height: 100px;
-}
-*/
 h1{
 	font-family: 'SUITE-Regular';
 	margin-bottom: 30px;
@@ -131,7 +124,7 @@ h1{
 	  margin-top: 50px;
 }
 table {
-  border: 1px #a39485 solid;
+  border: 1px solid rgba(0,0,0,.1);
   font-size: .9em;
   box-shadow: 0 2px 5px rgba(0,0,0,.25);
   width: 100%;
@@ -142,73 +135,24 @@ table {
   text-align: center;
 }
 
-th {
- 
-  color:black;
-}
-  
 thead {
   font-weight: bold;
   color: #fff;
   background: #73685d;
 }
-  
  td, th {
   padding: 1em .5em;
   vertical-align: middle;
+   background: #fff;
 }
   
- td {
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  background: #fff;
-}
-  
- @media all and (max-width: 768px) {
-    
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-  
-  th {
-    text-align: right;
-  }
-  
-  table {
-    position: relative; 
-    padding-bottom: 0;
-    border: none;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-  }
-  
-  thead {
-    float: left;
-    white-space: nowrap;
-  }
-  
-  tbody {
-    overflow-x: auto;
-    overflow-y: hidden;
-    position: relative;
-    white-space: nowrap;
-  }
-  
-  tr {
-    display: inline-block;
-    vertical-align: top;
-  }
-  
-  th {
-    border-bottom: 1px solid #a39485;
-  }
-  
-  td {
-    border-bottom: 1px solid #e5e5e5;
-  }
-  
-  
-  }
+
   .btu{
  width: 70%;
+  border: 1px solid rgba(0,0,0,.1);
+  }
+  .btut{
+   border: 1px solid rgba(0,0,0,.1);
   }
   #update {
   margin: 20px;

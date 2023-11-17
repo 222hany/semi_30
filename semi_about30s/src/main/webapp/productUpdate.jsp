@@ -11,17 +11,32 @@
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
 <body>
+	<%! String account_id; %>
 	<div class="wrap">
 	<div class="inner">
 	<div>
-		<p class="login-join-link"><a href="login.jsp">로그인</a> &nbsp;&nbsp; <a href="register.jsp">회원가입</a></p>
+		<%	
+			if (session.getAttribute("USER_NAME") != null) {
+		%>
+		<% 
+			account_id = (String) session.getAttribute("ACCOUNT_ID");
+			String user_name = (String)session.getAttribute("USER_NAME"); %>
+			    
+		<p class="sessionState"><%= user_name %>님 환영합니다! &nbsp;&nbsp;<a href="logout.jsp">로그아웃</a></p>
+		<%
+			} else {
+		%>
+		<p class="sessionState"><a href="login.jsp">로그인</a> &nbsp;&nbsp; <a href="register.jsp">회원가입</a></p>
+		<%
+			}
+		%>
         <header>
             <div class="logo">
-                <p class="gajimarket">가지마켓</p>
-            </div>
-            <div class="mascot">
-                <img src="../img/gajidori.png" alt="gajidori" class="gajidori">
-            </div>
+	                        <a href="mainpage.jsp" style="text-decoration: none;"><p class="gajimarket">가지마켓</p></a>
+	                    </div>
+	                    <div class="mascot">
+	                        <a href="mainpage.jsp"><img src="./img/gajidori.png" alt="gajidori" class="gajidori"></a>
+	                    </div>
         </header>
         <nav>
  			<ul>

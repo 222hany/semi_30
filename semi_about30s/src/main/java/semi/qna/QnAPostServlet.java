@@ -31,7 +31,7 @@ public class QnAPostServlet extends HttpServlet {
 			Connection connection = DriverManager.getConnection(jdbcURL, userName, password);
 
 			//int QNA_NO = Integer.parseInt(request.getParameter("QNA_NO"));
-			String ACCOUNT_ID = request.getParameter("ACCOUNT_ID");
+			String ACCOUNT_ID = request.getParameter("user_name");
 			String QNA_TITLE = request.getParameter("QNA_TITLE");
 			String QNA_TEXT = request.getParameter("QNA_TEXT");
 			String QNA_TIME = request.getParameter("QNA_TIME");
@@ -52,11 +52,11 @@ public class QnAPostServlet extends HttpServlet {
 			request.getSession().setAttribute("QNA_TEXT", qnaText);
 			request.getSession().setAttribute("QNA_TIME", qnaTime);
 			*/
-			// 성공할 우 이동할 페이지 설정해주고 다시 전송
+			// �꽦怨듯븷 �슦 �씠�룞�븷 �럹�씠吏� �꽕�젙�빐二쇨퀬 �떎�떆 �쟾�넚
 			response.sendRedirect("QnAList.jsp");
 			
 		} catch (SQLException e) {
-			// 실패할 경우 이동할 페이지 설정
+			// �떎�뙣�븷 寃쎌슦 �씠�룞�븷 �럹�씠吏� �꽕�젙
 			response.sendRedirect("QnAList.jsp");
 			e.printStackTrace();
 		}

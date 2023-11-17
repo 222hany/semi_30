@@ -10,6 +10,7 @@
 	</head>
 
 	<body>
+	<%! String user_name; %>
 		<div class="wrap">
 	        <div class="inner">
 		        <div>
@@ -18,7 +19,7 @@
 			    %>
 			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
-			    <% String user_name = (String)session.getAttribute("USER_NAME"); %>
+			    <% user_name = (String)session.getAttribute("USER_NAME"); %>
 			    
 			    <p class="sessionState"><%= user_name %>님 환영합니다! &nbsp;&nbsp;<a href="logout.jsp">로그아웃</a></p>
 			    <%
@@ -54,14 +55,13 @@
                 	<!-- 우측 페이지 --> 
                 	
 <form action="BoardPostServlet" method="post" enctype="multipart/form-data">
-	
+	<input type="hidden" id="user_name" name="user_name" value="<%=user_name%>">
 	<input type = "text" id="BOARD_TITLE" name="BOARD_TITLE" required value="제목을 작성해 주세요."><br>
 	<input type = "textarea" id="BOARD_TEXT" name="BOARD_TEXT" required value="내용을 작성해 주세요."><br>
 	<input type="file" name="BOARD_FILE" id="BOARD_FILE" required><br>
 	<input type = "submit" value="글쓰기" class="subbutton">
 	<button class="cancellationbtn"><a href="BoardList.jsp">돌아가기</a></button>
-	<label for = "ACCOUNT_ID">아이디:</label>
-	<input type = "text" id="ACCOUNT_ID" name="ACCOUNT_ID" required><br>
+
 </form>
 
 	            </div>

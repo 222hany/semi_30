@@ -38,7 +38,7 @@ public class BoardPostServlet extends HttpServlet {
 			String btitle = request.getParameter("BOARD_TITLE");
 			Part bfile = request.getPart("BOARD_FILE");
 			String btext = request.getParameter("BOARD_TEXT");
-			String bID = request.getParameter("ACCOUNT_ID");
+			String bID = request.getParameter("user_name");
 			
 			//ȸ������ \insert
 			

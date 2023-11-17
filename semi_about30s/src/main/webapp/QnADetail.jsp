@@ -15,15 +15,18 @@
 	</head>
 
 	<body>
+	<%! String account_id; %>
 		<div class="wrap">
 	        <div class="inner">
 		        <div>
-				<%
+				<%	
 			        if (session.getAttribute("USER_NAME") != null) {
 			    %>
 			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
-			    <% String user_name = (String)session.getAttribute("USER_NAME"); %>
+			    <% 
+					account_id = (String) session.getAttribute("ACCOUNT_ID");
+			    	String user_name = (String)session.getAttribute("USER_NAME"); %>
 			    
 			    <p class="sessionState"><%= user_name %>님 환영합니다! &nbsp;&nbsp;<a href="logout.jsp">로그아웃</a></p>
 			    <%
@@ -81,12 +84,10 @@
 		
 		<button id="updateButton" onclick="location.href='QnAUpdate.jsp?qnaNo=<%=qnaNo%>'">수정</button>
 		<button onclick="location.href='QnAList.jsp'" style="float:left; margin-left:50px;">목록</button>
-
-
-			<footer>
-					<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
-			</footer>
 	        </div>
 	    </div>
 	</body>
+	<footer>
+			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
 </html>

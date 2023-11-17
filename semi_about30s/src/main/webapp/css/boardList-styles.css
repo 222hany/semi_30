@@ -17,13 +17,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .inner {
     width: 1000px;
     margin: auto;
     height: 1080px;
 }
-
+body{
+	 height: 1400px;
+}
 .sessionState{
     text-align: right;
     height: 20px;
@@ -115,13 +116,6 @@ li a:hover:after, li a:focus:after {
 #li_link:visited{
 	color: black;
 }
-/*
-footer {
-    text-align: center;
-    background-color: beige;
-    height: 100px;
-}
-*/
 .img{
 	width: 50px;
     height:50px;
@@ -131,6 +125,17 @@ h1{
 	font-family: 'SUITE-Regular';
 	margin-bottom: 30px;
 }
+footer{
+	
+	margin-top: 130px;
+	float: center;
+
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    
+}
+
 
 .contents{
 	  margin-top: 50px;
@@ -169,6 +174,10 @@ thead {
  td {
   border-bottom: 1px solid rgba(0,0,0,.1);
   background: #fff;
+}
+
+a {
+  color: #73685d;
 }
   
  @media all and (max-width: 768px) {

@@ -115,16 +115,15 @@ li a:hover:after, li a:focus:after {
 #li_link:visited{
 	color: black;
 }
-/*
 footer {
+    letter-spacing: 2px;
     text-align: center;
-    background-color: beige;
-    height: 100px;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
 }
-*/
 .img{
-	width: 50px;
-    height:50px;
+	width: 300px;
+    height:300px;
     margin: 10px;
 }
   button {
@@ -172,7 +171,7 @@ h1{
 	  margin-top: 50px;
 }
 table {
-  border: 1px #a39485 solid;
+  border: 1px solid rgba(0,0,0,.1);
   font-size: .9em;
   box-shadow: 0 2px 5px rgba(0,0,0,.25);
   width: 100%;
@@ -183,56 +182,17 @@ table {
   text-align: center;
 }
 
-  
-
-  
  td, th {
   padding: 1em .5em;
   vertical-align: middle;
-}
-  
- td {
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px;
   background: #fff;
 }
-  
- @media all and (max-width: 768px) {
-    
-  table, thead, tbody, th, td, tr {
-    display: block;
+
+    .t1{
+  	background-color: #f3efef;
   }
+ 
+ 
   
-   
-  table {
-    position: relative; 
-    padding-bottom: 0;
-    border: none;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-  }
-  
-  thead {
-    float: left;
-    white-space: nowrap;
-  }
-  
-  tbody {
-    overflow-x: auto;
-    overflow-y: hidden;
-    position: relative;
-    white-space: nowrap;
-  }
-  
-  tr {
-    display: inline-block;
-    vertical-align: top;
-  }
-  
-  
-  td {
-    border-bottom: 1px solid #e5e5e5;
-  }
-   .t1{
-  	background-color: #e5e5e5;
-  }
-  
-  }
+ 
