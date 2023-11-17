@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+    
+<%@ page import = "semi.board.*" %>  
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/reviewPost.css">
+	<link rel="stylesheet" href="./css/boardDetail-styles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -45,34 +47,64 @@
 	                    </ul>
 	                </nav>
 		        </div>
-			<div class="innerReviewCreate">
-				<form action="ReviewPostServlet" method="post" enctype="multipart/form-data">
-					<label for="REVIEW_TITLE">제목</label>
-					<input type="text" placeholder='제목을 작성해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
-					
-					<label for="REVIEW_FILE">첨부</label>
-					<input type="file" id="REVIEW_FILE" name="REVIEW_FILE"><br>
-					
-					<label for="REVIEW_TEXT">내용</label>
-					<input type="textarea" style="white-space: pre-wrap" placeholder=' 내용을 작성해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT"required><br><br>
-					
-					<label for="ACCOUNT_ID">ID</label>
-					<input type="text" placeholder='작성하시는 분의 아이디를 입력해주세요.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br><br>
-					<div class="buttons">
-						<button class="btn1"><a href ="reviewList.jsp">목록</a></button>
-						<button class="btn3"><a href ="reviewList.jsp">취소</a></button>
-						<button class="btn3" type="submit" onclick="createbutton()">등록</button>
-					</div>
-				</form>
-			</div>
-			<div class="returnMain">
-	        	<a href="reviewList.jsp">
-	        		<img src="./img/goToMain.jpg" width="300px">
-	       		</a>
-        	</div>
-	        <footer>
-			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
-			</footer>
-	        </div>
-	    </div>
-	</body>
+            <div class="contents">
+	            <div class="sidebar">
+	            	<!-- 좌측 메뉴 -->
+		          
+	            </div>
+	            <div class="main">
+                	<!-- 우측 페이지 --> 
+                	              	<h1>게시판 내용</h1>
+<%
+String boardIdValue = request.getParameter("boardno");
+int boardno = Integer.parseInt(boardIdValue);
+
+BoardDAO boardDAO = new BoardDAO();
+Board board = boardDAO.getBoardno(boardno);
+%>
+<table border="1">
+
+<input type="hidden" name ="boardno" value="<%=boardno %>"><br>
+<tr>
+<td class="t1">제목</th>
+<td><%= board.getBoardTitle() %></th>
+</tr>
+<tr>
+<td class="t1">작성자</td>
+<td><%= board.getBid() %></td>
+
+</tr>
+<tr>
+<tr>
+<td class="t1">작성일</td>
+<td><%= board.getBoardtime() %></td>
+</tr>
+
+<td colspan="2"><img src="<%=boardDAO.image(boardno)%>" class="img"></td>
+<tr>
+<td colspan="2"><%= board.getBoardText() %></td>
+</tr>
+
+</table>
+
+<button type="button" class="custom-btn btn-1" onclick="location.href='BoardUpdate.jsp?boardno=<%=boardno %>'">수정</button>
+
+	<form action="BoardDelete.jsp?boardno=<%=boardno%>" method="post">
+	<button type="submit" class="custom-btn btn-1" onclick="Location.href='BoardDelete.jsp?boardno=<%=boardno%>'">삭제</button>
+	</form>
+	 <button class="custom-btn btn-1 btn-2" onclick="location.href='BoardList.jsp'">돌아가기</button>  	
+	            </div>
+	          
+            </div>
+        
+        </div>
+     <footer>
+        <p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+        </footer>
+    </div>
+   
+</body>
+
+</html>
+
+  

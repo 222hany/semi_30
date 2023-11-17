@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>가지마켓 : 회원탈퇴</title>
+		<title>마이페이지 : 회원탈퇴</title>
 		<link rel="stylesheet" type="text/css" href="./css/deleteAccount.css">
 	</head>
 

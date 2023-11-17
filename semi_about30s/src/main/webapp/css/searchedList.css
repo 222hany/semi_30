@@ -150,7 +150,7 @@ h4{
 .searchList{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	margin-top: 100px;
 }
 .searchList .productBox{
@@ -184,8 +184,7 @@ h4{
 	font-size: 12pt;
 	letter-spacing: 2px;
 }
-footer {
-    text-align: center;
-    background-color: beige;
-    height: 100px;
+footer{
+	text-align:center;
+	font-family: 'SUITE-Regular';
 }

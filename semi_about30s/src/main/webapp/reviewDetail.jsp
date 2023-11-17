@@ -41,10 +41,10 @@
 	                </header>
 	                <nav>
 	                    <ul>
-	                        <li><a>자유게시판</a></li>
-	                        <li><a>리뷰게시판</a></li>
-	                        <li><a href="QnAList.jsp">문의게시판</a></li>
-	                        <li><a href="productRetrieve.jsp">마이페이지</a></li>
+	                        <li><a id="li_link" href="BoardList.jsp" style="text-decoration: none;">자유게시판</a></li>
+	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
+	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
+	                        <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
 	                    </ul>
 	                </nav>
 		        </div>

@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "java.util.List" %>
+<%@ page import = "semi.board.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/reviewPost.css">
+	<link rel="stylesheet" href="./css/boardList-styles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -37,7 +40,7 @@
 	                    </div>
 	                </header>
 	                <nav>
-	                    <ul>
+	                     <ul>
 	                        <li><a id="li_link" href="BoardList.jsp" style="text-decoration: none;">자유게시판</a></li>
 	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
 	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
@@ -45,34 +48,51 @@
 	                    </ul>
 	                </nav>
 		        </div>
-			<div class="innerReviewCreate">
-				<form action="ReviewPostServlet" method="post" enctype="multipart/form-data">
-					<label for="REVIEW_TITLE">제목</label>
-					<input type="text" placeholder='제목을 작성해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
-					
-					<label for="REVIEW_FILE">첨부</label>
-					<input type="file" id="REVIEW_FILE" name="REVIEW_FILE"><br>
-					
-					<label for="REVIEW_TEXT">내용</label>
-					<input type="textarea" style="white-space: pre-wrap" placeholder=' 내용을 작성해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT"required><br><br>
-					
-					<label for="ACCOUNT_ID">ID</label>
-					<input type="text" placeholder='작성하시는 분의 아이디를 입력해주세요.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br><br>
-					<div class="buttons">
-						<button class="btn1"><a href ="reviewList.jsp">목록</a></button>
-						<button class="btn3"><a href ="reviewList.jsp">취소</a></button>
-						<button class="btn3" type="submit" onclick="createbutton()">등록</button>
-					</div>
-				</form>
-			</div>
-			<div class="returnMain">
-	        	<a href="reviewList.jsp">
-	        		<img src="./img/goToMain.jpg" width="300px">
-	       		</a>
-        	</div>
-	        <footer>
-			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
-			</footer>
-	        </div>
-	    </div>
-	</body>
+            <div class="contents">
+	            <div class="sidebar">
+	            	<!-- 좌측 메뉴 -->
+	
+		            
+	            </div>
+	            <div class="main">
+               <h1>자유게시판</h1>
+	<table>
+		<tr>
+			<th>번호</th>
+			<th colspan="2">제목</th>
+			<th>작성일</th>
+			<th>작성자</th>
+			<th>조회수</th>
+		</tr>
+		<%
+		BoardDAO boardDAO = new BoardDAO();
+		List<Board> boards = boardDAO.getAllBoard();
+		for(Board b : boards){
+			%>
+			<tr>
+			<td><%=b.getBoardno() %></td>
+			<td><img src="<%=boardDAO.image(b.getBoardno())%>" class="img"></td>
+			<td><a href="BoardDetail.jsp?boardno=<%=b.getBoardno() %>">
+			<%=b.getBoardTitle()%>
+			</a>
+			</td>
+			<td><%=b.getBoardtime()%></td>
+			<td><%=b.getBid()%></td>
+			<td><%=b.getBoardhit()%></td>
+		<%} %>	
+	</table>
+			<button type="button" class="custom-btn btn-1" onclick="location.href='BoardPost.jsp'">글쓰기</button>
+			
+	            </div>
+	     
+            </div>
+       
+        </div>
+        
+    </div>
+</body>
+<footer>
+	<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
+</html>
+

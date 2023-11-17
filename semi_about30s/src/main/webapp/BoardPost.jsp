@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./css/reviewPost.css">
+	<link rel="stylesheet" href="./css/boardPost-styles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
@@ -37,7 +37,7 @@
 	                    </div>
 	                </header>
 	                <nav>
-	                    <ul>
+	                     <ul>
 	                        <li><a id="li_link" href="BoardList.jsp" style="text-decoration: none;">자유게시판</a></li>
 	                        <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
 	                        <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
@@ -45,34 +45,34 @@
 	                    </ul>
 	                </nav>
 		        </div>
-			<div class="innerReviewCreate">
-				<form action="ReviewPostServlet" method="post" enctype="multipart/form-data">
-					<label for="REVIEW_TITLE">제목</label>
-					<input type="text" placeholder='제목을 작성해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
-					
-					<label for="REVIEW_FILE">첨부</label>
-					<input type="file" id="REVIEW_FILE" name="REVIEW_FILE"><br>
-					
-					<label for="REVIEW_TEXT">내용</label>
-					<input type="textarea" style="white-space: pre-wrap" placeholder=' 내용을 작성해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT"required><br><br>
-					
-					<label for="ACCOUNT_ID">ID</label>
-					<input type="text" placeholder='작성하시는 분의 아이디를 입력해주세요.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br><br>
-					<div class="buttons">
-						<button class="btn1"><a href ="reviewList.jsp">목록</a></button>
-						<button class="btn3"><a href ="reviewList.jsp">취소</a></button>
-						<button class="btn3" type="submit" onclick="createbutton()">등록</button>
-					</div>
-				</form>
-			</div>
-			<div class="returnMain">
-	        	<a href="reviewList.jsp">
-	        		<img src="./img/goToMain.jpg" width="300px">
-	       		</a>
-        	</div>
-	        <footer>
-			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
-			</footer>
-	        </div>
-	    </div>
-	</body>
+            <div class="contents">
+	            <div class="sidebar">
+	            	<!-- 좌측 메뉴 -->
+		          
+	            </div>
+	            <div class="main">
+                	<!-- 우측 페이지 --> 
+                	
+<form action="BoardPostServlet" method="post" enctype="multipart/form-data">
+	
+	<input type = "text" id="BOARD_TITLE" name="BOARD_TITLE" required value="제목을 작성해 주세요."><br>
+	<input type = "textarea" id="BOARD_TEXT" name="BOARD_TEXT" required value="내용을 작성해 주세요."><br>
+	<input type="file" name="BOARD_FILE" id="BOARD_FILE" required><br>
+	<input type = "submit" value="글쓰기" class="subbutton">
+	<button class="cancellationbtn"><a href="BoardList.jsp">돌아가기</a></button>
+	<label for = "ACCOUNT_ID">아이디:</label>
+	<input type = "text" id="ACCOUNT_ID" name="ACCOUNT_ID" required><br>
+</form>
+
+	            </div>
+            </div>
+       
+        </div>
+    </div>
+    </body>
+
+</body>
+<footer>
+	<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+	</footer>
+</html>
