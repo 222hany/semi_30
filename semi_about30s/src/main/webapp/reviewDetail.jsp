@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.sql.Timestamp"%>
-<%@ page import="semi.review.*" %>
+<%@ page import="semi.review.*"%> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -54,26 +54,28 @@
 			ReviewDAO reviewDao = new ReviewDAO();
 			Review review = reviewDao.getReviewNo(reviewNo);
 		%>
-			<p>
-				번호 : <%=review.getREVIEW_NO()%><br>
-				제목 : <%=review.getREVIEW_TITLE()%><br>
-				내용 : <%=review.getREVIEW_TEXT()%><br>
-				사용자ID : <%=review.getACCOUNT_ID()%><br>
-				작성시간 : <%=review.getREVIEW_TIME()%>
-			</p>
-			<div class="buttons">
-				<button class="btn1"><a href ="reviewList.jsp">목록</a></button>
-				<form action="reviewDelete.jsp?REVIEW_No=<%=reviewNo%>" method="post">
-					<button class="btn1" type="submit" id="deleteButton" onclick="Location.href='reviewDelete.jsp?REVIEW_NO=<%=reviewNo%>'">삭제</button>
-				</form>
-				<button class="btn1" id="updateButton" onclick="location.href='reviewUpdate.jsp?REVIEW_No=<%=reviewNo%>'">수정</button>
+			<div class="mainform">
+				<p class="maintable">
+					<br>번호 : <%=review.getREVIEW_NO()%><br>
+					제목 : <%=review.getREVIEW_TITLE()%><br>
+					내용 : <%=review.getREVIEW_TEXT()%><br>
+					사용자ID : <%=review.getACCOUNT_ID()%><br>
+					작성시간 : <%=review.getREVIEW_TIME()%>
+				</p>
+				<div class="buttons">
+						<button class="btn1" id="listButton"><a id="list_linkhref" href ="reviewList.jsp">목록</a></button>
+						<button class="btn1" id="updateButton" onclick="location.href='reviewUpdate.jsp?REVIEW_No=<%=reviewNo%>'">수정</button>
+						<form action="reviewDelete.jsp?REVIEW_No=<%=reviewNo%>" method="post">
+							<button class="btn1" type="submit" id="deleteButton" onclick="Location.href='reviewDelete.jsp?REVIEW_NO=<%=reviewNo%>'">삭제</button>
+						</form>
+				</div>
 			</div>
 			<div class="returnMain">
-	        	<a href="reviewList.jsp">
-	       			<img src="./img/goToMain.jpg" width="300px">
+	        	<a id="list_linkhref" href="reviewList.jsp">
+	       			<img src="./img/goToMain.jpg" width="120px">
 	       		</a>
        		</div>
-	        <footer>
+			<footer>
 			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
 			</footer>
 	        </div>

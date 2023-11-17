@@ -54,7 +54,7 @@ public class RegisterProductServlet extends HttpServlet {
 			preparedStatement.setString(4, productCategory);
 			preparedStatement.setString(5, productComment);
 			preparedStatement.setBinaryStream(6, productFile.getInputStream(), (int) productFile.getSize());
-			preparedStatement.setString(7, "thirty0");
+			preparedStatement.setString(7, accountId);
 			
 			preparedStatement.executeUpdate();
 			

@@ -109,6 +109,9 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
+#li_link{
+	color: black;
+}
 #li_link:visited{
 	color: black;
 }
@@ -122,7 +125,7 @@ li a:hover:after, li a:focus:after {
 	float: left;
 	width: 245px;
 	height: 200px;
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 10px;
 	margin: 5px 5px 505px 0;
 }
@@ -133,7 +136,7 @@ li a:hover:after, li a:focus:after {
 
 .links {
 	text-decoration: none;
-	color: black;
+	color: #5C408C;
 }
 
 .main {
@@ -141,7 +144,7 @@ li a:hover:after, li a:focus:after {
     width: 750px;
     height: 705px;
     text-align: center;
-    border: 1px solid lightgray;
+    border: 1px solid #5C408C;
     border-radius: 10px;
     margin: 5px 0 0 0;
 }
@@ -170,13 +173,13 @@ th, td {
 	float: left;
 	width: 750px;
 	height: 705px;
-    border: 1px solid lightgray;
+    border: 1px solid #5C408C;
     border-radius: 10px;
     margin: 5px 0 0 0;
 }
 
 .product_img{
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	width: 500px;
 	height: 297px;
@@ -185,7 +188,7 @@ th, td {
 }
 
 .product_title{
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
@@ -193,7 +196,7 @@ th, td {
 }
 
 .product_text{
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
@@ -214,16 +217,24 @@ th, td {
 	margin-top: 2px;
 	width: 50px;
 	height: 35px;
+	color: #5C408C;
+	background-color: lavender;
+	border-radius: #5C408C;
 }
 
 .btn {
 	width: 50px;
 	height: 35px;
+	background-color: lavender;
+	color: #5C408C;
 }
 
 .cancel {
 	width: 50px;
 	height: 35px;
+	color: #5C408C;
+	background-color: lavender;
+	border-radius: #5C408C;
 }
 
 .detail-main {
@@ -234,14 +245,14 @@ th, td {
 }
 
 .detail-img {
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	width: 500px;
 	height: 300px;
 }
 
 .detail-title{
 	margin: 0 auto;
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	font-size: 20px;
 	width: 500px;
@@ -250,7 +261,7 @@ th, td {
 
 .detail-text{
 	margin: 5px auto;
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	text-align: left;
 	padding-left: 5px;
@@ -261,28 +272,28 @@ th, td {
 
 .detail-category {
 	padding: 3px;
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
-	width: 50px;
+	width: 80px;
 	height: 30px;
 	display: inline-block;
 }
 
 .detail-price{
 	margin: 0 auto;
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	padding-top: 3px;
-	width: 220px;
+	width: 205px;
 	height: 30px;
 	display: inline-block;
 }
 
 .detail-id {
-	border: 1px solid lightgray;
+	border: 1px solid #5C408C;
 	border-radius: 5px;
 	padding-top: 3px;
-	width: 220px;
+	width: 205px;
 	height: 30px;
 	display: inline-block;
 }
@@ -291,13 +302,16 @@ th, td {
 	margin-top: 10px;
 	width: 50px;
 	height: 35px;
+	background-color: lavender;
+	color: #5C408C;
 }
 
 footer {
     text-align: center;
     height: 95px;
-    border: 1px solid lightgray;
+    border: 1px solid #5C408C;
     border-radius: 10px;
     padding-top: 40px;
     margin: 5px 0 0 0;
+    background-color: #75C945;
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="semi.review.*" %>
+<%@ page import="semi.review.*"%> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,7 +10,7 @@
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
-
+	
 	<body>
 		<div class="wrap">
 	        <div class="inner">
@@ -18,7 +18,6 @@
 				<%
 			        if (session.getAttribute("USER_NAME") != null) {
 			    %>
-			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
 			    <% String user_name = (String)session.getAttribute("USER_NAME"); %>
 			    
@@ -47,9 +46,10 @@
 	                    </ul>
 	                </nav>
 		        </div>
-	        <div class="innerReviewList">
-				<div style="overflow-y:scroll; width: 850px; height:500px;">
+	        <div class="mainform">
+				<div class="maintable">
 					<table border="1">
+						<tbody>
 	        			<tr>
 				            <th>번호</th>
 				            <th>제목</th>
@@ -64,30 +64,27 @@
 			            for (Review review : reviewList) {
 						%>
 						<tr>
-							<td><center><a href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_NO() %> </a></center></td>
-							<td><center><a href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TITLE() %></a></center></td>
-							<td><center><a href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TEXT() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_NO() %> </a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TITLE() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TEXT() %></a></center></td>
 							<td><center><%= review.getREVIEW_TIME() %></center></td>
-							<td><center><a href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getACCOUNT_ID() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getACCOUNT_ID() %></a></center></td>
 							<td><center><%= review.getREVIEW_HIT()%></center></td>
 						</tr>
 							<%
 							}
 							%>
+						</tbody>
 					</table>
 				</div>
+					<button class = "btn1"><a id="list_linkhref" href="reviewPost.jsp">생성</a></button>
+				</div>
 				<div class="returnMain">
-	        	<a href="reviewList.jsp">
-	        		<img src="./img/goToMain.jpg" width="300px">
+	        	<a id="list_linkhref" href="reviewList.jsp">
+	        		<img src="./img/goToMain.jpg" width="120px">
         		</a>
 	        	</div>
-			</div>
-			<foot>
-				<div>
-					<button class = "btn1"><a href="reviewPost.jsp">생성</a></button>
-				</div>
-			</foot>
-	        <footer>
+			<footer>
 			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
 			</footer>
 	        </div>

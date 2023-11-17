@@ -18,6 +18,11 @@
     box-sizing: border-box;
 }
 
+#list_link {
+	text-decoration: none;
+	color: inherit;
+}
+
 .inner {
     width: 1000px;
     margin: auto;
@@ -109,13 +114,18 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
-/*
-footer {
-    text-align: center;
-    background-color: beige;
-    height: 100px;
+#li_link{
+	color: black;
 }
-*/
+#li_link:visited{
+	color: black;
+}
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
+}
 /*********************from here*********************/
 	input[type="text"],
 	input[type="email"],

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="semi.review.*" %>
+<%@ page import="semi.review.*"%>  
 <!DOCTYPE html>
 <html>
 	<head>
@@ -68,7 +68,7 @@
 	        <%
 	        }
 	        %>
-	        <footer>
+			<footer>
 			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
 			</footer>
 	        </div>

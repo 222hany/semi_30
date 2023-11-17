@@ -50,7 +50,6 @@ public class ReviewUpdateServlet extends HttpServlet {
             response.sendRedirect("reviewList.jsp");
 		} catch (SQLException e) {
 
-			response.sendRedirect("review-error.jsp");
 			e.printStackTrace();
 		}
 	}

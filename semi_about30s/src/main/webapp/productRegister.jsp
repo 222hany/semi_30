@@ -9,15 +9,18 @@
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
 <body>
+	<%! String account_id; %>
 	<div class="wrap">
 	<div class="inner">
 	<div>
-				<%
+				<%	
 			        if (session.getAttribute("USER_NAME") != null) {
 			    %>
 			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
-			    <% String user_name = (String)session.getAttribute("USER_NAME"); %>
+			    <% 
+					account_id = (String) session.getAttribute("ACCOUNT_ID");
+			    	String user_name = (String)session.getAttribute("USER_NAME"); %>
 			    
 			    <p class="sessionState"><%= user_name %>님 환영합니다! &nbsp;&nbsp;<a href="logout.jsp">로그아웃</a></p>
 			    <%
@@ -36,8 +39,8 @@
 	                    </div>
 	                </header>
         <nav>
- 			<ul>
- 				<li><a id="li_link" href="BoardList.jsp" style="text-decoration: none;">자유게시판</a></li>
+			<ul>
+				<li><a id="li_link" href="BoardList.jsp" style="text-decoration: none;">자유게시판</a></li>
 	            <li><a id="li_link" href="reviewList.jsp" style="text-decoration: none;">리뷰게시판</a></li>
 	            <li><a id="li_link" href="QnAList.jsp" style="text-decoration: none;">문의게시판</a></li>
 	            <li><a id="li_link" href="productRetrieve.jsp" style="text-decoration: none;">마이페이지</a></li>
@@ -53,7 +56,7 @@
 	</div>
 	<div class="register-main">
 	<form action="RegisterProduct" method="post" enctype="multipart/form-data">
-		<input type="hidden" id="product_no" name="product_no" class="product_no" value="" required><br>
+		<input type="hidden" id="account_id" name="account_id" class="account_id" value="<%= account_id %>" required>
 		<input type="file" id="product_file" name="product_file" class="product_img" placeholder="Image" required><br>
 		<input type="text" id="product_title" name="product_title" class="product_title" placeholder="Title" required><br>
 		<input type="text" id="product_text" name="product_text" class="product_text" placeholder="Text" required><br>
