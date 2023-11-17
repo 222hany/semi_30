@@ -72,10 +72,10 @@
 				<button type="submit" id="update">수정</button>
 			</form>	
 		</section>
+			<footer>
+					<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
+			</footer>
 	        </div>
 	    </div>
 	</body>
-	<footer style="text-align:center; font-family: 'SUITE-Regular'; margin:10px">
-			<p>회사소개 | 인재채용 | 제휴제안 | 이용약관 | 개인정보처리방침 | 청소년보호정책 | 고객센터 | GAZI Corp.</p>
-	</footer>
 </html>

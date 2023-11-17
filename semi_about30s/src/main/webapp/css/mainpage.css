@@ -185,7 +185,9 @@ li a:hover:after, li a:focus:after {
 	font-size: 12pt;
 	letter-spacing: 2px;
 }
-footer{
-	text-align:center;
-	font-family: 'SUITE-Regular';
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
 }

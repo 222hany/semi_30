@@ -157,3 +157,9 @@ th {
 	color:white;
 	background-color: #75c945;
 }
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
+}

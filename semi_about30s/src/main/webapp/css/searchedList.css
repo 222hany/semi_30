@@ -109,6 +109,12 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
+#li_link{
+	color: black;
+}
+#li_link:visited{
+	color: black;
+}
 .search-box {
     padding: 20px;
     position: absolute;
@@ -184,7 +190,9 @@ h4{
 	font-size: 12pt;
 	letter-spacing: 2px;
 }
-footer{
-	text-align:center;
-	font-family: 'SUITE-Regular';
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
 }

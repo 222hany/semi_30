@@ -164,3 +164,9 @@ button:hover, :focus{
 	color: #fff;
 	outline: 0;
 }
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
+}
