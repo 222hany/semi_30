@@ -49,9 +49,9 @@
 			                <textarea rows="5" placeholder='내용을 수정해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br>
 			                <input type="text" placeholder='수정할 게시글의 번호를 입력해주세요.' id="REVIEW_NO" name="REVIEW_NO" required><br><br>
 							<div class="buttons">
-								<button class="btn1" id="listButton"><a id="list_linkhref" ="reviewList.jsp">목록</a></button>
+								<button class="btn1" id="listButton"><a id="aTag" ="reviewList.jsp">목록</a></button>
 								<button class="btn1" id="updateButton" type="submit" onclick="updatebutton()">수정</button>
-								<button class="btn1" id="deleteButton" ><a id="list_linkhref" href ="reviewList.jsp">취소</a></button>
+								<button class="btn1" id="deleteButton" ><a id="aTag" href ="reviewList.jsp">취소</a></button>
 							</div>
 						</div>
 		            </form>
