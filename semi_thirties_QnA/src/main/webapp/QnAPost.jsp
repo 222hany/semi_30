@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.net.URLDecoder" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
-<%@ page import="semi.qna.QnADAO" %>
-<%@ page import="semi.qna.QnAVO" %>
-
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet"  type="text/css" href="css/QnAListStyles.css">
+	<link rel="stylesheet" href="css/QnAStyles.css">
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
+
 	<body>
-	<%! String account_id; %>
+	<%! String user_name; %>
 		<div class="wrap">
 	        <div class="inner">
 		        <div>
@@ -25,8 +20,10 @@
 			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
 			    <% 
-					account_id = (String) session.getAttribute("ACCOUNT_ID");
-			    	String user_name = (String)session.getAttribute("USER_NAME"); %>
+			    	user_name = (String)session.getAttribute("USER_NAME"); 
+			    	
+			   
+			    	%>
 			    
 			    <p class="sessionState"><%= user_name %>님 환영합니다! &nbsp;&nbsp;<a href="logout.jsp">로그아웃</a></p>
 			    <%
@@ -53,75 +50,29 @@
 	                    </ul>
 	                </nav>
 		        </div>
-				<div class="contents">
-					<div class="sidebar">
-						<table id="topQnA">
-							<tr>
-								<th id = "top"><img src="img/gazi.png">자주 묻는 질문 TOP10<img src="img/gazi.png"></th>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=1">1. 비밀번호를 변경하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=2">2. 비밀번호를 분실했어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=3">3. 아이디를 분실했어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=4">4. 탈퇴하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=5">5. 상품을 등록하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=6">6. 상품을 삭제하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=7">7. 상품을 수정하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=8">8. 내 정보를 수정하고 싶어요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=9">9. 새 상품이 아니에요.</a></td>
-							</tr>
-							<tr>
-								<td><a id="listlink" href="QnADetail.jsp?qnaNo=10">10.가입 없이 게시판 이용하고 싶어요.</a></td>
-							</tr>
-						</table>
-					</div>
-					
-					<div class="main">
-					<table border="1" id="qnA" style="border-collapse:collapse; vertical-align: middle;">
-						<tr style="background-color : #75c945; color : white; text-align: center;">
-							<th style="width:60px;padding:8px;">글번호</th>
-							<th style="width:390px;padding:8px;">제 목</th>
-							<th style="width:110px;padding:8px;">작성자</th>
-							<th style="width:120px;padding:8px;">작성시간</th>
-							<th style="width:60px;padding:8px;">조회수</th>
-						</tr>
-						<%
-						QnADAO qnaDAO = new QnADAO();
-									List<QnAVO> qnas = qnaDAO.getAllQnAs();
-									
-									for(QnAVO qna : qnas){
-						%>
-						<tr style="border-bottom: 1px solid rgba(0,0,0,.1);">
-							<td style="text-align:center;padding:8px;"> <%= qna.getQnaNo() %> </td>
-							<td style="padding:8px;"><a id="listlink" href="QnADetail.jsp?qnaNo=<%=qna.getQnaNo()%>"> <%= qna.getQnaTitle() %> </td>
-							<td style="text-align:center;padding:8px;"><a id="listlink" href="QnADetail.jsp?qnaNo=<%=qna.getQnaNo()%>"> <%= qna.getAccountID() %> </td>
-							<td style="text-align:center;padding:8px;"><%= qna.getQnaTime() %> </td>
-							<td style="text-align:center;padding:8px;"><%= qna.getQnaHit()%> </td>
-						</tr>
-						<%		
-							}
-						%>
-						
-					</table>
-					</div>
-				</div>
-				<button id="postButton" onclick="location.href='QnAPost.jsp'">글쓰기</button>
+		<div class="main">
+			<form action="QnAPostServlet" method="post"> <!--form action="QnAPostServlet" method="post" enctype="multipart/form-data"-->
+				<input type="hidden" id="user_name" name="user_name" value="<%=user_name%>">
+				<table border="1" id="detailTable">
+				<!-- input type="text" id="ACCOUNT_ID" name="ACCOUNT_ID" placeholder="아이디" required -->
+					<tr>
+						<th style="padding:15px;">제목</th>
+						<td><input style="width:100%; border:none;" type="text" name="QNA_TITLE" size="13pt" id="QNA_TITLE" placeholder=" 제목을 입력하세요." required></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea rows="20" cols="60" id="QNA_TEXT" name="QNA_TEXT" style="width:100%; resize :none; border:none;" placeholder=" 내용을 입력하세요." required></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<input type="file" id="fileInput" accept="image/*"></td>
+					</tr>
+				</table>
+				<button type="button" onclick='location.href = "QnAList.jsp"'>취소</button>				
+				<button type="submit" id="submitButton">작성</button>
+
+			</form>
+			</div>
 	        </div>
 	    </div>
 	</body>
