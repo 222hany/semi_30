@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\user1\Desktop\semi_서른즈음에\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+619599179.index
+1813055401.index
+546313435.index
+1620577870.index
+3380960012.index
+162127011.index
