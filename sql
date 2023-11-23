@@ -1,5 +1,5 @@
 로그인, 메인
-1. 회원가입
+1. 회원가입^^
 String join = "INSERT INTO USERINFO(ACCOUNT_ID, PASSWORD, USER_NAME, EMAIL, PHONENUMBER)" + "VALUES (?, ?, ?, ?, ?)";
 2. 로그인
 String login = "SELECT ACCOUNT_ID FROM USERINFO WHERE ACCOUNT_ID = ? AND PASSWORD = ?";
