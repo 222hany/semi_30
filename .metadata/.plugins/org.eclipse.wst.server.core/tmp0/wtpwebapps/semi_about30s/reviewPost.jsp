@@ -49,9 +49,9 @@
 							<textarea rows="5" placeholder='내용을 작성해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br><br>
 							<input type="text" placeholder='작성하시는 분의 아이디를 입력해주세요.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br><br>
 							<div class="buttons">
-								<button class="btn1" id="listButton"><a id="aTag" href ="reviewList.jsp">목록</a></button>
+								<button class="btn1" id="listButton"><a id="list_linkhref" href ="reviewList.jsp">목록</a></button>
 								<button class="btn1"  id="createButton" type="submit" onclick="createbutton()">등록</button>
-								<button class="btn1" id="deleteButton"><a id="aTag" href ="reviewList.jsp">취소</a></button>
+								<button class="btn1" id="deleteButton"><a id="list_linkhref" href ="reviewList.jsp">취소</a></button>
 							</div>
 						</div>
 					</form>

@@ -64,11 +64,11 @@
 			            for (Review review : reviewList) {
 						%>
 						<tr>
-							<td><center><a id="aTag" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_NO() %> </a></center></td>
-							<td><center><a id="aTag" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TITLE() %></a></center></td>
-							<td><center><a id="aTag" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TEXT() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_NO() %> </a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TITLE() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getREVIEW_TEXT() %></a></center></td>
 							<td><center><%= review.getREVIEW_TIME() %></center></td>
-							<td><center><a id="aTag" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getACCOUNT_ID() %></a></center></td>
+							<td><center><a id="list_linkhref" href="reviewDetail.jsp?REVIEW_NO=<%=review.getREVIEW_NO()%>"> <%= review.getACCOUNT_ID() %></a></center></td>
 							<td><center><%= review.getREVIEW_HIT()%></center></td>
 						</tr>
 							<%
@@ -77,10 +77,10 @@
 						</tbody>
 					</table>
 				</div>
-					<button class = "btn1"><a id="aTag" href="reviewPost.jsp">생성</a></button>
+					<button class = "btn1"><a id="list_linkhref" href="reviewPost.jsp">생성</a></button>
 				</div>
 				<div class="returnMain">
-	        	<a id="aTag" href="reviewList.jsp">
+	        	<a id="list_linkhref" href="reviewList.jsp">
 	        		<img src="./img/goToMain.jpg" width="120px">
         		</a>
 	        	</div>

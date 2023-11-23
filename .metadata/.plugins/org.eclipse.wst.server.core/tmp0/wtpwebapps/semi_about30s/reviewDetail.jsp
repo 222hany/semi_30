@@ -63,7 +63,7 @@
 					작성시간 : <%=review.getREVIEW_TIME()%>
 				</p>
 				<div class="buttons">
-						<button class="btn1" id="listButton"><a id="aTag" href ="reviewList.jsp">목록</a></button>
+						<button class="btn1" id="listButton"><a id="list_linkhref" href ="reviewList.jsp">목록</a></button>
 						<button class="btn1" id="updateButton" onclick="location.href='reviewUpdate.jsp?REVIEW_No=<%=reviewNo%>'">수정</button>
 						<form action="reviewDelete.jsp?REVIEW_No=<%=reviewNo%>" method="post">
 							<button class="btn1" type="submit" id="deleteButton" onclick="Location.href='reviewDelete.jsp?REVIEW_NO=<%=reviewNo%>'">삭제</button>
@@ -71,7 +71,7 @@
 				</div>
 			</div>
 			<div class="returnMain">
-	        	<a id="aTag" href="reviewList.jsp">
+	        	<a id="list_linkhref" href="reviewList.jsp">
 	       			<img src="./img/goToMain.jpg" width="120px">
 	       		</a>
        		</div>
