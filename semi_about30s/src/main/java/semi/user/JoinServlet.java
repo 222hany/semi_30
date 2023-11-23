@@ -55,7 +55,7 @@ public class JoinServlet extends HttpServlet {
 			request.getSession().setAttribute("EMAIL", email);
 			request.getSession().setAttribute("PHONENUMBER", phonenumber);
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("registerSuccess.jsp");
 		}catch (SQLIntegrityConstraintViolationException e) {
 			response.sendRedirect("invalidAccountId.jsp");
 			e.printStackTrace();

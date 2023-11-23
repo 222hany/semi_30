@@ -5,6 +5,9 @@
 	<head>
 		<meta charset="EUC-KR">
 		<title></title>
+		<%
+			session.invalidate();
+		%>
 		<script>
 			//3초후 홈페이지로 이동하는 js
 			setTimeout(function(){

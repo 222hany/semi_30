@@ -39,7 +39,6 @@
 	            }else{
 	            	errorMsg.textContent = "";
 	            }
-	            alert('성공적으로 가입되었습니다! 다시 로그인 해주세요.');
 	            return true;
 	        }
         </script>
