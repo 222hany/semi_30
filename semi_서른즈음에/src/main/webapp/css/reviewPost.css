@@ -1,0 +1,234 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'LOTTERIACHAB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#aTag {
+	text-decoration: none;
+	color: inherit;
+}
+
+.inner {
+    width: 1000px;
+    margin: auto;
+    height: 1080px;
+}
+
+.sessionState{
+    text-align: right;
+    height: 20px;
+}
+
+header{
+    height:220px;
+}
+
+header:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    height: 220px;
+    margin-left: 230px;
+}
+
+.gajimarket{
+    color: #6C44BB;
+    text-shadow: 10px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    font-family: 'LOTTERIACHAB';
+    font-size: 80pt;
+    letter-spacing: 10px;
+    height: 220px;
+    padding-top: 30px;
+}
+
+.mascot {
+    float: left;
+}
+
+.gajidori{
+    width: 140px;
+    margin-left: 25px;
+}
+
+nav{
+    background-color: lavender;
+}
+
+ul li{
+    display: inline-block;
+    font-family: 'SUITE-Regular';
+    font-size: 20pt;
+    margin-left: 106px;
+}
+
+li {
+    position: relative;
+}
+
+li a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(90deg, #6C44BB, #6DA44C);
+    opacity: 0;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}  
+
+li a:hover:before, li a:focus:before {
+    opacity: 0;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+li a:hover:after, li a:focus:after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+#li_link{
+	color: black;
+}
+#li_link:visited{
+	color: black;
+}
+footer {
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'SUITE-Regular';
+    margin-top: 40px;
+}
+/*********************from here*********************/
+
+	.wrap {
+		width: 1275px;
+	    margin: auto;
+	    height: 1000px;
+	}
+	
+	.mainform {
+		width: 1000px;
+		margin: auto;
+		height: 600px;
+	}
+	
+	.maintable {
+		width: 1000px;
+		margin: auto;
+		height: 500px;
+	}
+	
+	form {
+		background-color: #fff;
+		border-radius: 5px;
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+		color: #5C408C;
+		font-weight: 700;
+		width: 1000px;
+		height: 600px;
+	}
+
+	
+	input[type="text"], input[type="email"], input[type="date"] {
+		width: 500px;
+		height: 30px;
+		margin-bottom: 15px;
+		border: none;
+		border-radius: 5px;
+		display: inline-block;
+		text-align: center;
+		font-weight: 700;
+		margin: auto;
+		margin-top: 40px;
+		border-collapse: collapse;
+		overflow: hidden;
+  		box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  		line-height: 50px;
+	}
+	
+	textarea {
+		width: 500px;
+		height: 15em;
+		border: none;
+		border-radius: 5px;
+		text-align: center;
+		font-weight: 700;
+		margin: auto;
+		border-collapse: collapse;
+		overflow: hidden;
+  		box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  		line-height: 20px;
+	}
+	
+	.buttons {
+		display: flex;
+        justify-content: space-between;
+	}
+	
+	.btn1 {
+		box-sizing: border-box;
+        background-color: transparent;
+        border: 2px solid #5C408C;
+        border-radius: 0.6em;
+        color: #5C408C;
+        cursor: pointer;
+        font-size: 0.8rem;
+        line-height: 0.3;
+        margin-top: 20px;
+        padding: 13px;
+        font-weight: 700;
+        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        margin-left: 5%;
+	}
+	
+	.btn1:hover, .btn1:focus {
+		box-shadow: 0 0 40px 40px #5C408C inset;
+		color: #fff;
+		outline: 0;
+	}
+	
+	#listButton {
+		margin-left: 22%;
+	}
+	
+	#createButton {
+        margin-right: -35%;
+    }
+    
+    #deleteButton {
+    	margin-right: 23%;
+    }
+    
+	.returnMain {
+		margin-left: 110%;
+	}
